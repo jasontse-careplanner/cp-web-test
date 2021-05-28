@@ -1,10 +1,8 @@
 const chrome = require('selenium-webdriver/chrome');
 const webdriver = require('selenium-webdriver');
 const oneTimeLogin = require('./Utility/OneTimeLogin');
+require('dotenv').config();
 let opts = new chrome.Options();
-
-let appUsername = 'admin';
-let appPassword = '@smmsdjh@S';
 
 let isHeadless = false;
 let isDev = false;
@@ -40,7 +38,10 @@ process.argv.forEach(function (val, index, array) {
   await test(driver);
 })();
 
+// todo: Set up public git repo and push to it
+
 async function devLogin(loginLink, driver) {
+  // todo: figure out why one time login code fails 50% of the time
   await driver.get(loginLink);
   if (await driver.getCurrentUrl() === 'http://localhost:8081/user/password') {
     await driver.quit();
@@ -49,6 +50,11 @@ async function devLogin(loginLink, driver) {
 }
 
 async function nonDevLogin(driver) {
+  let user = process.env.loginUser;
+  let pass = process.env.loginPassword;
+  if (user === undefined || pass === undefined) {
+    throw new Error('Undefined env variables loginUser and/or loginPassword');
+  }
   // todo: nonDev login with admin user
 }
 
@@ -57,6 +63,10 @@ async function test(driver) {
   await clientsElement.click();
 
   // todo: create new user
+  // todo: create care plan
+  // todo: create second care plan
+  // todo: check old care plan pushed to expired
+  // todo: check active care plan is the most recent care plan created
 
 
   // let userInput = driver.findElement(webdriver.By.css('#edit-name'));

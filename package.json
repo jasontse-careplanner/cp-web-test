@@ -1,0 +1,9 @@
+{
+  "name": "cp-web-test",
+  "version": "1.0.0",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "selenium-webdriver": "^4.0.0-beta.3"
+  },
+  "devDependencies": {}
+}
