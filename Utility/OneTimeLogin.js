@@ -8,7 +8,7 @@ const login = async () => {
     try {
         result = await execProm('docker exec careplanner_careplanner_1 drush uli');
     } catch(ex) {
-        result = ex;
+        throw new Error(ex);
     }
     link = (result.stdout).replace('http://default', 'http://localhost:8081');
     return link;
