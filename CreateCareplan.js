@@ -8,9 +8,9 @@ let appPassword = '@smmsdjh@S';
 
 let isHeadless = process.argv[2] === '--headless';
 
-// oneTimeLogin.login().then( res => devTest(res) );
 (async function main() {
-  oneTimeLogin.login().then( res => devTest(res) );
+  let link = await oneTimeLogin.login();
+  await devTest(link);
 })();
 
 async function devTest(loginLink) {
