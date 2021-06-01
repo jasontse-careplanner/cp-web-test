@@ -9,10 +9,10 @@ We can also provide --dev or --headless flag when running the test.
 
 e.g.
 ```
-node CreateCareplan.js --dev
+node Main.js --dev
 ```
 
-### env variables
+### Env variables
 Create a .env file to store sensitive data, this is gitignored and won't be commited.
 
 ```

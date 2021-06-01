@@ -2,7 +2,7 @@ const { exec } = require('child_process');
 const util = require("util");
 const execProm = util.promisify(exec);
 
-const login = async () => {
+const generateLink = async () => {
     let result;
     let link = '';
     try {
@@ -14,4 +14,4 @@ const login = async () => {
     return link;
 };
 
-exports.login = login;
+exports.generateLink = generateLink;
