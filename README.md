@@ -1,3 +1,4 @@
+### Tests
 Each test will be in its on js file.
 
 We can also provide --dev or --headless flag when running the test.
@@ -9,4 +10,12 @@ We can also provide --dev or --headless flag when running the test.
 e.g.
 ```
 node CreateCareplan.js --dev
+```
+
+### env variables
+Create a .env file to store sensitive data, this is gitignored and won't be commited.
+
+```
+loginUser={replace_this}
+loginPassword={replace_this}
 ```
