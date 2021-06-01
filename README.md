@@ -9,7 +9,7 @@ We can also provide --dev or --headless flag when running the test.
 
 e.g.
 ```
-node Main.js --dev
+node Main.js CreateCarePlan --dev
 ```
 
 ### Env variables
