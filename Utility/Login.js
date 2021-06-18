@@ -1,7 +1,7 @@
-const webdriver = require('selenium-webdriver');
+const {By} = require('selenium-webdriver');
 
 const devLogin = async (loginLink, driver) => {
-    // one time login code fails 50% of the time
+    // one time login link fails 50% of the time for some reason
     await driver.get(loginLink);
     if (await driver.getCurrentUrl() === 'http://localhost:8081/user/password') {
         await driver.quit();
@@ -15,11 +15,11 @@ const nonDevLogin = async (driver) => {
     if (user === undefined || pass === undefined) {
         throw new Error('Undefined env variables loginUser and/or loginPassword');
     }
-    let userInput = await driver.findElement(webdriver.By.css('#edit-name'));
+    let userInput = await driver.findElement(By.css('#edit-name'));
     await userInput.sendKeys(user);
-    let passwordInput = await driver.findElement(webdriver.By.css('#edit-pass'));
+    let passwordInput = await driver.findElement(By.css('#edit-pass'));
     await passwordInput.sendKeys(pass);
-    let loginButton = await driver.findElement(webdriver.By.css('#edit-submit'));
+    let loginButton = await driver.findElement(By.css('#edit-submit'));
     await loginButton.click();
 };
 

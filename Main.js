@@ -36,7 +36,9 @@ let test = require('./Test/' + testToRun);
         .setChromeOptions(opts.headless())
         .build();
   }
-  await driver.manage().window().setRect({ width: 1366, height: 768 });
+  // Set 60 seconds wait time when polling the DOM for elements
+  await driver.manage().setTimeouts( { implicit: 60000 } );
+  await driver.manage().window().setRect({ width: 1366, height: 850 });
   if (isDev) {
     let link = await generateOneTimeLogin.generateLink();
     await login.devLogin(link, driver);
