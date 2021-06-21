@@ -10,6 +10,7 @@ const devLogin = async (loginLink, driver) => {
 };
 
 const nonDevLogin = async (driver) => {
+    await driver.get(process.env.uri);
     let user = process.env.loginUser;
     let pass = process.env.loginPassword;
     if (user === undefined || pass === undefined) {

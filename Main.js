@@ -1,8 +1,8 @@
 const chrome = require('selenium-webdriver/chrome');
 const webdriver = require('selenium-webdriver');
 const fs = require('fs');
-const generateOneTimeLogin = require('./Utility/GenerateOneTimeLogin');
-const login = require('./Utility/Login');
+const generateOneTimeLogin = require('./Utility/Login/GenerateOneTimeLogin');
+const login = require('./Utility/Login/Login');
 require('dotenv').config();
 let opts = new chrome.Options();
 
